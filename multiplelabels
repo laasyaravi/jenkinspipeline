@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        label 'node2 && node1'
+    }
+
+    stages {
+        stage('STAGE1') {
+            agent {
+        label 'node2'
+    }
+
+            steps {
+               echo "This is the stage 1"
+               sh '''
+                    #!/bin/bash
+                    ls -l
+                    date >> file1.txt
+                '''
+            }
+        }
+        stage('Build') {
+        agent {
+        label 'node1'
+    }
+    
+            steps {
+                echo "Building Java code"
+                sh '''
+                    #!/bin/bash
+                    echo "stage 1 successful and executed @ $(date) "
+                '''
+            }
+        }
+    }
+}
