@@ -5,6 +5,10 @@ pipeline {
 
     stages {
         stage('STAGE1') {
+            agent {
+        label 'node2'
+    }
+
             steps {
                echo "This is the stage 1"
                sh '''
@@ -15,6 +19,10 @@ pipeline {
             }
         }
         stage('Build') {
+        agent {
+        label 'node1'
+    }
+    
             steps {
                 echo "Building Java code"
                 sh '''
