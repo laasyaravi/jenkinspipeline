@@ -17,7 +17,7 @@ pipeline {
                 echo "Building Java code"
                 sh '''
                     #!/bin/bash
-                    echo "stage 1 successful and executed @ \date "
+                    echo "stage 1 successful and executed @ $(date) "
                 '''
             }
         }
