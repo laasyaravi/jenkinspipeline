@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    environment {
+             num1= '10'
+             num2=  '20'
+            }
+  
+    stages {
+        stage('STAGE1') {
+            steps {
+               echo "This is the stage 1"
+               sh '''
+                    #!/bin/bash
+                    if [ ${env.num1}  -gt ${env.num2} ] ; then
+                        echo " ${env.num1} is the greatest"
+                        
+                    else 
+                        echo " ${env.num2} is the greatest "
+                        
+                    fi
+                    echo "This is a linux command"
+                '''
+            }
+        }
+        
+    }
+    stages {
+        stage('STAGE1') {
+            steps {
+               echo "This is the stage 1"
+               sh '''
+                     int result = env.num1.toInteger() * env.num2.toInteger()
+                    echo "Result: ${result}"
+                '''
+            }
+        }
+        
+    }
+}
