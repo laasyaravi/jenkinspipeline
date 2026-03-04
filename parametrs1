@@ -11,7 +11,8 @@ pipeline {
     stages {
         stage('Print Parameters') {
             steps {
-                git checkout ${params.BRANCH_NAME}
+                sh "git checkout ${params.BRANCH_NAME}
+                    git  status "
                 echo "Branch: ${params.BRANCH_NAME}"
                 echo "Run tests: ${params.RUN_TESTS}"
                 echo "Environment: ${params.ENVIRONMENT}"
