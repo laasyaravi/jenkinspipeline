@@ -11,7 +11,7 @@ pipeline {
                echo "This is the stage 1"
                sh '''
                     #!/bin/bash
-                    if [ env.num1.toInteger() -gt env.num2.toInteger() ] ; then
+                    if [ [ env.num1.toInteger() -gt env.num2.toInteger() ] ] ; then
                         echo " ${env.num1} is the greatest"
                         
                     else 
@@ -29,6 +29,7 @@ pipeline {
             steps {
                echo "This is the stage 2"
                sh '''
+                     #!/bin/bash
                      int result = env.num1.toInteger() * env.num2.toInteger()
                     echo "Result: ${result}"
                 '''
