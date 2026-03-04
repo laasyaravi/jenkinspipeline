@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Git branch to build')
+        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run tests?')
+        choice(name: 'ENVIRONMENT', choices: ['main', 'test', 'prod'], description: 'Deploy environment')
+     
+    }
+
+    stages {
+        stage('Print Parameters') {
+            steps {
+                git checkout ${params.BRANCH_NAME}
+                echo "Branch: ${params.BRANCH_NAME}"
+                echo "Run tests: ${params.RUN_TESTS}"
+                echo "Environment: ${params.ENVIRONMENT}"
+            }
+        }
+    }
+}
