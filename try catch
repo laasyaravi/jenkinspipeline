@@ -7,10 +7,9 @@ pipeline {
                 script {
                     try {
                         // Code that might throw an exception
-                        sh '''
-                             echo "some-command-that-might-fail"
+                        
+                             sh "some-command-that-might-fail"
 
-                         '''
                     } catch (Exception e) {
                         // Handling the exception
                         echo "Caught an exception: ${e.message}"
