@@ -4,6 +4,7 @@ pipeline {
     options {
 
                   retry(4) // Retry 4 times if job fails 
+                  disableConcurrentBuilds()
 
      }
 
@@ -23,7 +24,7 @@ pipeline {
                 echo "Building Java code"
                 sh '''
                     #!/bin/bash
-                    sleep11 5
+                    sleep 5
                 '''
             }
         }
