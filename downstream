@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo " downstream job "
+echo " executed after upstream @ $(date)"
+
+
+
