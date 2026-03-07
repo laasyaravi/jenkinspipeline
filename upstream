@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo " this is upstream job "
+
+sleep 5
+
+echo " closing the upstream job "
