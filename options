@@ -3,7 +3,7 @@ pipeline {
 
     options {
 
-                  retry(4) // Retry 4 times if job fails 
+                  //retry(4) // Retry 4 times if job fails 
                   disableConcurrentBuilds()
                   buildDiscarder(logRotator(numToKeepStr: '5')) 
                   timeout(time: 5, unit: 'SECONDS')
