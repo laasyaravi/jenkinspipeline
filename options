@@ -23,7 +23,7 @@ pipeline {
                 echo "Building Java code"
                 sh '''
                     #!/bin/bash
-                    sleep 5
+                    sleep11 5
                 '''
             }
         }
